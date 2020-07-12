@@ -1,0 +1,21 @@
+repos:
+-   repo: https://github.com/ambv/black
+    rev: stable
+    hooks:
+    - id: black
+      language_version: python3.6
+      stages: [commit]
+-   repo: https://gitlab.com/pycqa/flake8
+    rev: 3.7.9
+    hooks:
+    - id: flake8
+      stages: [commit]
+-   repo: local
+    hooks:
+    - id: pytest
+      name: pytest
+      language: system
+      entry: pytest
+      pass_filenames: false
+      always_run: true
+      stages: [commit]
